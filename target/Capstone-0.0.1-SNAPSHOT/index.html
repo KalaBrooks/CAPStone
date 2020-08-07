@@ -3,25 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sale</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+
+        #main {
+
+
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: verdana;
+
+        }
+
+        aside {
+           float: left;
+            width: 30%;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+
+        main {
+            float: right;
+            width: 70%;
+            margin-bottom: 20px;
+
+        }
+
+        h1,
+        p,
+        img,
+        header,
+        nav {
+
+            display: block;
+        }
+
+        header {
+            color: white;
+            background-color: black;
+
+        }
+
+        nav {
+            width: 1000px;
+            height: 60px;
+            margin: 0 auto 20px;
+            bottom: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+
+        }
+
+        nav ul li {
+            float: left;
+            padding: 16px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+      
+        button:hover {
+            background-color: white;
+            color: rgb(255, 115, 0);
+            border-bottom: 5px solid rgb(255, 115, 0);
+
+        }
+
+        #tab {
+            list-style: none;
+        }
+
+        #tab li {
+            padding: 10px 0;
+        }
+    </style>
 </head>
 
 <body>
-    <form action="connect.jsp" method="post">
-        Register Agent
-        <label for="name">Name</label>
-        <input type="text" name="name" />
-        <label for="password">Password</label>
-        <input type="text" name="password" />
-        <label for="phone">Phone</label>
-        <input type="text" name="phone" />
-        <label for="address">Address</label>
-        <input type="text" name="address" />
-        <input type="submit">
+    <nav class="nav ">
+        <a class="nav-link active bg-danger text-white"" href=" #">Home</a>
+        <a class="nav-link bg-danger text-white"" href=" #">Account</a>
+        <a class="nav-link bg-danger text-white"" href=" #">Quotes</a>
+    </nav>
+    <div id="main">
+        <aside>
 
-    </form>
+            <img src="https://www.designmantic.com/logo-images/166882.png?company=Company+Name&slogan=&verify=1"
+                height="100" height="100" style="padding: 10px; margin: 10 auto;">
+            <h1>Cap Car Company</h1>
+
+            <ul id="tab">
+
+
+            </ul>
+
+
+
+
+        </aside>
+        <main>
+            <form action="connect.jsp" method="post">
+                <h1>Agent Registration</h1>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="text" name="password" class="form-control" id="pwd">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" name="phone" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" class="form-control" id="pwd">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+        </main>
+    </div>
+
+
 </body>
+<script src="js.js"></script>
 
 </html>

@@ -1,3 +1,8 @@
+<%@page import="com.capstone.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +26,7 @@
         }
 
         aside {
-           float: left;
+            float: left;
             width: 30%;
             margin-bottom: 20px;
             height: 100%;
@@ -92,9 +97,9 @@
 
 <body>
     <nav class="nav ">
-        <a class="nav-link active bg-danger text-white"" href=" #">Home</a>
+       <a class="nav-link active bg-danger text-white"" href="index.html">Home</a>
         <a class="nav-link bg-danger text-white"" href=" #">Account</a>
-        <a class="nav-link bg-danger text-white"" href=" #">Quotes</a>
+        <a class="nav-link bg-danger text-white"" href="agents.jsp">Agents</a>
     </nav>
     <div id="main">
         <aside>
@@ -113,34 +118,49 @@
 
         </aside>
         <main>
-            <form action="connect.jsp" method="post">
-                <h1>Agent Registration</h1>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="text" name="password" class="form-control" id="pwd">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="text" name="phone" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address:</label>
-                    <input type="text" name="address" class="form-control" id="pwd">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-danger">Submit</button>
-            </form>
+        
+           
+<sql:setDataSource var = "snapshot" driver = "com.mysql.cj.jdbc.Driver"
+         url = "jdbc:mysql://localhost/capstone"
+         user = "root"  password = "Kala"/>
+      <sql:query dataSource = "${snapshot}" var = "result">
+         SELECT * from agent;
+      </sql:query>
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Agent ID</th>
+      <th scope="col">Agent Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Address</th>
+      
+      <c:forEach var = "row" items = "${result.rows}">
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><c:out value = "${row.agent_id}"/></td>
+      <td><c:out value = "${row.name}"/></td>
+      <td><c:out value = "${row.password}"/></td>
+      <td><c:out value = "${row.phone}"/></td>
+      <td><c:out value = "${row.address}"/></td>
+      
+    </tr>
+    </c:forEach>
+    
+  </tbody>
+</table>
+
+
         </main>
     </div>
 
 
 </body>
-<script src="js.js"></script>
 
 </html>
+
+
+
